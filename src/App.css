@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Roboto:ital,wght@0,400;1,100&family=Rubik+Bubbles&display=swap');
+
+/* fuentes
+font-family: 'Bagel Fat One',
+system-ui;
+font-family: 'Roboto',
+sans-serif;
+font-family: 'Rubik Bubbles',
+system-ui;
+*/
+/* colores
+1
+#43766C #F8FAE5 #B19470 #76453B
+2
+#C2DEDC #ECE5C7 #CDC2AE #116A7B
+*/
+
 #root{
   min-height: 100vh;
   display: flex;
@@ -6,4 +23,24 @@
 
 .main{
   flex-grow: 1;
+}
+
+body{
+  background:#F8FAE5;
+}
+
+h1{
+font-family: 'Rubik Bubbles', system-ui;
+text-align: center;
+color: #B19470;
+}
+
+footer{
+  background-color: #76453B;
+}
+
+.titulo-footer{
+  font-family: 'Roboto',sans-serif;
+  color: #F8FAE5;
+  text-align: center;
 }

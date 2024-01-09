@@ -1,4 +1,5 @@
 import {Container} from 'react-bootstrap'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
@@ -6,9 +7,10 @@ function App() {
 
   return (
     <>
-      <Container className="main">
-       <h1>Administracion Veterinaria 🐕</h1>
+      <Container  className="main text-center">
+        <h1>Administracion Veterinaria Peluditos🐕</h1>
       </Container>
+      <Footer/>
     </>
   )
 }
