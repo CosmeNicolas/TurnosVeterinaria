@@ -3,7 +3,7 @@ import { Form, Button} from "react-bootstrap";
 
 
 const Formulario = () => {
-  const [nombreMascota, setNombreMascota] = useState('second')
+  const [nombreMascota, setNombreMascota] = useState('')
   const [nombreDueño, setNombreDueno] = useState('')
   const [fecha, setFecha] = useState('')
   const [hora, setHora] = useState('')
