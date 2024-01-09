@@ -1,5 +1,6 @@
  import { useState } from 'react' 
 import { Form, Button} from "react-bootstrap";
+import TurnosVista from './TurnosVista';
 
 
 const Formulario = () => {
@@ -8,7 +9,6 @@ const Formulario = () => {
   const [fecha, setFecha] = useState('')
   const [hora, setHora] = useState('')
 
-  
 
   const handleSubmit = (e)=> {
     e.preventDefault();
@@ -17,6 +17,8 @@ const Formulario = () => {
 
 
   return(
+    <>
+    
     <div className="container container-form">
 
       <Form>
@@ -75,6 +77,8 @@ const Formulario = () => {
         </Button>
       </Form>
     </div>
+    <TurnosVista/>
+        </>
   )
 }
 

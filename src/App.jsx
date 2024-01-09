@@ -2,6 +2,7 @@
 import {Container} from 'react-bootstrap'
 import Footer from './components/Footer'
 import Formulario from './components/Formulario'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
