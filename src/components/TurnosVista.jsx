@@ -4,12 +4,8 @@ import Turno from './Turno';
 const TurnosVista = () => {
   return (
     <div className='d-flex justify-content-center my-3'>
-    <Card style={{ width: '18rem' }}>
-      <Card.Body>
-        <Card.Title>Turno</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Mascota</Card.Subtitle>
-          <Turno/>
-      </Card.Body>
+    <Card style={{ width: '18rem' }} className='my-2'>
+      <Turno/>
     </Card>
     </div>
   );

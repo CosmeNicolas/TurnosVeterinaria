@@ -78,6 +78,7 @@ const Formulario = () => {
       </Form>
     </div>
     <TurnosVista/>
+    
         </>
   )
 }
