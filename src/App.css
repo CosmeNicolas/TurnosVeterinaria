@@ -26,17 +26,26 @@ system-ui;
 }
 
 body{
-  background:#F8FAE5;
+  background:#116A7B;
 }
 
 h1{
 font-family: 'Rubik Bubbles', system-ui;
 text-align: center;
-color: #B19470;
+color: #e5d0b6;
 }
 
 footer{
   background-color: #76453B;
+}
+
+.container-form{
+  background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .titulo-footer{
