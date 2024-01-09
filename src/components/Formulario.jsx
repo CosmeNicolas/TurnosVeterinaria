@@ -1,30 +1,77 @@
-/* import { useState } from 'react' */
+ import { useState } from 'react' 
 import { Form, Button} from "react-bootstrap";
 
 
 const Formulario = () => {
+  const [nombreMascota, setNombreMascota] = useState('second')
+  const [nombreDueño, setNombreDueno] = useState('')
+  const [fecha, setFecha] = useState('')
+  const [hora, setHora] = useState('')
+
+  
+
+  const handleSubmit = (e)=> {
+    e.preventDefault();
+
+  }
+
 
   return(
     <div className="container container-form">
 
       <Form>
+        {/* nombre mascota */}
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
+          <Form.Label>Nombre Mascota</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Ingrese el nombre de su mascota"
+            name='nombreMascota'
+            minLength={2}
+            maxLength={50}
+            value={nombreMascota}
+            onChange={(e)=>setNombreMascota(e.target.value)}
+            required />
         </Form.Group>
-  
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+        {/* nombre dueño */}
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Nombre Dueño</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Ingrese el nombre de su mascota"
+            name='nombre'
+            minLength={2}
+            maxLength={50}
+            value={nombreDueño}
+            onChange={(e)=>setNombreDueno(e.target.value)}
+            required />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+        {/* fecha */}
+        <Form.Group className="mb-3" controlId="formFecha">
+          <Form.Label>Fecha</Form.Label>
+          <Form.Control
+            type="date"
+            name='fecha'
+            value={fecha}
+            onChange={(e)=>setFecha(e.target.value)}
+            required
+          />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
+        {/* hora */}
+       
+        <Form.Group className="mb-3" controlId="formHora">
+          <Form.Label>Hora</Form.Label>
+          <Form.Control
+            type="time"
+            name='hora'
+            value={hora}
+            onChange={(e)=>setHora(e.target.value)}
+            required
+          />
+        </Form.Group>
+
+        <Button variant="dark" type="submit" className='btn-form py-2 my-2'>
+          Crear Turno
         </Button>
       </Form>
     </div>
