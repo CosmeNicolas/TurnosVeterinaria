@@ -8,11 +8,25 @@ const Formulario = () => {
   const [nombreDueño, setNombreDueno] = useState('')
   const [fecha, setFecha] = useState('')
   const [hora, setHora] = useState('')
+  const [turno, setTurno] = useState([])
+
+  
 
 
   const handleSubmit = (e)=> {
     e.preventDefault();
 
+    const ingresoMascota = {
+      nombreMascota,
+      nombreDueño,
+      fecha,
+      hora
+    }
+
+
+
+    setTurno([...turno, ingresoMascota])
+    console.log(setTurno)
   }
 
 
@@ -21,7 +35,7 @@ const Formulario = () => {
     
     <div className="container container-form">
 
-      <Form>
+      <Form onSubmit={handleSubmit}>
         {/* nombre mascota */}
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Nombre Mascota</Form.Label>
