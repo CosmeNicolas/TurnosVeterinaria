@@ -8,13 +8,10 @@ import './App.css'
 
 
 function App() {
- 
-  
     
-
   return (
     <>
-      <Container  className="main text-center">
+      <Container  className="main text-center mt-5">
         <h1>Administracion Veterinaria Peluditos🐕</h1>
         <Formulario/>
       </Container>
