@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2'
 import { useState, useEffect } from 'react'
 import { Form, Button } from "react-bootstrap";
-import TurnosVista from './TurnosVista';
+import Turno from './Turno';
 
 
 const Formulario = () => {
@@ -49,7 +49,10 @@ const Formulario = () => {
       icon: 'success',
       showCancelButton: false,
       confirmButtonColor: '#3085d6',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      customClass: {
+        popup: 'container-alert',
+      }
     })
 
   }
@@ -61,7 +64,7 @@ const Formulario = () => {
     <>
       <div className="container container-form">
 
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} className='p-3 text-start '>
           {/* nombre mascota */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Nombre Mascota</Form.Label>
@@ -117,7 +120,7 @@ const Formulario = () => {
           </Button>
         </Form>
       </div>
-      <TurnosVista turnos={turnos} borrarTurno={borrarTurno} />
+      <Turno turnos={turnos} borrarTurno={borrarTurno} />
     </>
   )
 }

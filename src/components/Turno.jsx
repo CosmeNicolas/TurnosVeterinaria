@@ -7,12 +7,13 @@ const Turno = ({ turnos, borrarTurno }) => {
         <Container>
       {
         turnos.map((itemTurno ,posicionItemTturno)=>(
-          <Card.Body key={posicionItemTturno}>
+          <Card key={posicionItemTturno} className='my-3'>
+          <Card.Body >
               <Card.Title>Turno</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">Mascota</Card.Subtitle>
               <ListGroup variant="flush" className='text-start'>
-              <ListGroup.Item>Nombre mascota:{itemTurno.nombreMascota}</ListGroup.Item>
-              <ListGroup.Item>Nombre Dueño:{itemTurno.nombreDueno}</ListGroup.Item>
+              <ListGroup.Item>Nombre mascota: {itemTurno.nombreMascota}</ListGroup.Item>
+              <ListGroup.Item>Nombre Dueño: {itemTurno.nombreDueno}</ListGroup.Item>
               <ListGroup.Item>Fecha: {itemTurno.fecha}</ListGroup.Item>
               <ListGroup.Item>Hora: {itemTurno.hora}</ListGroup.Item>
               </ListGroup>
@@ -20,6 +21,7 @@ const Turno = ({ turnos, borrarTurno }) => {
                 Borrar Turno
               </Button>
           </Card.Body>
+          </Card>
         ))}
      
           {turnos.length === 0 && (
