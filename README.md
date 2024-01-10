@@ -1,8 +1,16 @@
-# React + Vite
+# Turnos Veterinaria 🐶
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En este proyecto , se establecio un formulario usando los hooks de react ,para poder cargar mascotas solicitando turnos con horarios y fechas se debe completar el formulario y una vez aceptado se los mostrata en pantalla. 
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Librerias y Framewroks 🎨
+
+- [GoogleFont](https://fonts.google.com/)
+- [Bootstraps](https://react-bootstrap.github.io/) 
+- [ColorHunt](https://colorhunt.co/palette/1d2b537e2553ff004dfaef5d)
+- [sweetAlert2](https://sweetalert2.com/download)
+
+### Deploy del Proyecto 💻
+
+Puedes ver el proyecto y probarlo ingresando a este link
+- [TurnosVeterinaria]https://veterinaria-peluditos-turnos.netlify.app/
