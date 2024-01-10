@@ -1,7 +1,42 @@
+import Swal from 'sweetalert2';
 import {Container, Button, ListGroup, Card } from 'react-bootstrap';
 
 const Turno = ({ turnos, borrarTurno }) => {
   console.log(turnos)
+  const confirmarBorrarTurno = (itemTurno) => {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción no se puede deshacer',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#116A7B',
+      cancelButtonColor: '#a44747',
+      confirmButtonText: 'Sí, Borrar',
+      cancelButtonText: 'Cancelar',
+      customClass: {
+        popup: 'container-alert',
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        borrarTurno(itemTurno);
+        mostrarMensajeBorrado();
+      }
+    });
+
+  };
+
+  const mostrarMensajeBorrado = () => {
+    Swal.fire({
+      title: '¡Borrado!',
+      text: 'El turno ha sido eliminado',
+      icon: 'success',
+      confirmButtonColor: '#116A7B',
+      customClass: {
+        popup: 'container-alert'
+      }
+    });
+  };
+
   return (
     <>
         <Container>
@@ -17,7 +52,7 @@ const Turno = ({ turnos, borrarTurno }) => {
               <ListGroup.Item>Fecha: {itemTurno.fecha}</ListGroup.Item>
               <ListGroup.Item>Hora: {itemTurno.hora}</ListGroup.Item>
               </ListGroup>
-              <Button onClick={() => borrarTurno(itemTurno)} variant="dark" className='btn-borrar py-2'>
+              <Button onClick={() => confirmarBorrarTurno(itemTurno)} variant="dark" className='btn-borrar py-2'>
                 Borrar Turno
               </Button>
           </Card.Body>
@@ -26,7 +61,7 @@ const Turno = ({ turnos, borrarTurno }) => {
      
           {turnos.length === 0 && (
           <Card.Body>
-            <Card.Title>No hay turnos cargados</Card.Title>
+            <Card.Title className='py-3 my-3 bg bg-body-tertiary border-title'>No hay turnos cargados</Card.Title>
           </Card.Body>
           )}
     </Container>

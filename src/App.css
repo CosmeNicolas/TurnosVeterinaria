@@ -63,11 +63,16 @@ footer{
 }
 
 .container-alert {
-  background-color: #116A7B;
+  background-color: hsl(190, 74%, 21%);
   color: #F8FAE5;
 }
 
 Form{
   font-family: 'Roboto', sans-serif;
-  color: #e6e6e6;
+  color: #ffffff;
+}
+
+.border-title{
+  border-radius: 5px;
+  font-family: 'Rubik Bubbles', system-ui;
 }
