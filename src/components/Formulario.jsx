@@ -1,17 +1,23 @@
-import { useState } from 'react' 
+import { useState ,useEffect} from 'react' 
 import { Form, Button} from "react-bootstrap";
 import TurnosVista from './TurnosVista';
 
 
 const Formulario = () => {
-  const [nombreMascota, setNombreMascota] = useState('')
-  const [nombreDueno, setNombreDueno] = useState('')
-  const [fecha, setFecha] = useState('')
-  const [hora, setHora] = useState('')
-  const [turno, setTurno] = useState('')
-  const [turnos, setTurnos] = useState([]);
+  const [nombreMascota, setNombreMascota] = useState('');
+  const [nombreDueno, setNombreDueno] = useState('');
+  const [fecha, setFecha] = useState('');
+  const [hora, setHora] = useState('');
+  const [turno, setTurno] = useState('');
+  const turnosGuardados = JSON.parse(localStorage.getItem('guardarTurno')) || [];
+  const [turnos, setTurnos] = useState(turnosGuardados);
 
   console.log(turnos)
+
+  useEffect(() => {
+    localStorage.setItem('guardarTurno',JSON.stringify(turnos))
+  }, [turnos])
+  
 
   const borrarTurno = (nombreTurno) =>{
     const tomarTurno = turnos.filter((turno) => turno !== nombreTurno);
