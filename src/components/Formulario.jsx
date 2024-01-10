@@ -1,38 +1,48 @@
- import { useState } from 'react' 
+import { useState } from 'react' 
 import { Form, Button} from "react-bootstrap";
 import TurnosVista from './TurnosVista';
 
 
 const Formulario = () => {
   const [nombreMascota, setNombreMascota] = useState('')
-  const [nombreDueño, setNombreDueno] = useState('')
+  const [nombreDueno, setNombreDueno] = useState('')
   const [fecha, setFecha] = useState('')
   const [hora, setHora] = useState('')
-  const [turno, setTurno] = useState([])
+  const [turno, setTurno] = useState('')
+  const [turnos, setTurnos] = useState([]);
 
-  
+  console.log(turnos)
+
+  const borrarTurno = (nombreTurno) =>{
+    const tomarTurno = turnos.filter((turno) => turno !== nombreTurno);
+    setTurnos(tomarTurno)
+  } 
 
 
   const handleSubmit = (e)=> {
     e.preventDefault();
 
-    const ingresoMascota = {
+    const nuevoTurno = {
       nombreMascota,
-      nombreDueño,
+      nombreDueno,
       fecha,
       hora
     }
 
+    setTurnos([...turnos, nuevoTurno])
+    setTurno(turno);
 
+    /* limpio los campos una vez ingresado los datos */
+    setNombreMascota('');
+    setNombreDueno('');
+    setFecha('');
+    setHora('');
 
-    setTurno([...turno, ingresoMascota])
-    console.log(setTurno)
   }
 
 
   return(
     <>
-    
     <div className="container container-form">
 
       <Form onSubmit={handleSubmit}>
@@ -58,7 +68,7 @@ const Formulario = () => {
             name='nombre'
             minLength={2}
             maxLength={50}
-            value={nombreDueño}
+            value={nombreDueno}
             onChange={(e)=>setNombreDueno(e.target.value)}
             required />
         </Form.Group>
@@ -91,7 +101,7 @@ const Formulario = () => {
         </Button>
       </Form>
     </div>
-    <TurnosVista/>
+      <TurnosVista turnos={turnos} borrarTurno={borrarTurno} />
         </>
   )
 }
