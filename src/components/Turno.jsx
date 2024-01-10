@@ -20,10 +20,13 @@ const Turno = ({ turnos, borrarTurno }) => {
                 Borrar Turno
               </Button>
           </Card.Body>
-        ))
-      }
+        ))}
      
-    
+          {turnos.length === 0 && (
+          <Card.Body>
+            <Card.Title>No hay turnos cargados</Card.Title>
+          </Card.Body>
+          )}
     </Container>
     </>
   );

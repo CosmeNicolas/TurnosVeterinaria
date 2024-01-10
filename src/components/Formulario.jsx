@@ -1,5 +1,5 @@
-import { useState ,useEffect} from 'react' 
-import { Form, Button} from "react-bootstrap";
+import { useState, useEffect } from 'react'
+import { Form, Button } from "react-bootstrap";
 import TurnosVista from './TurnosVista';
 
 
@@ -15,17 +15,16 @@ const Formulario = () => {
   console.log(turnos)
 
   useEffect(() => {
-    localStorage.setItem('guardarTurno',JSON.stringify(turnos))
+    localStorage.setItem('guardarTurno', JSON.stringify(turnos))
   }, [turnos])
-  
 
-  const borrarTurno = (nombreTurno) =>{
+
+  const borrarTurno = (nombreTurno) => {
     const tomarTurno = turnos.filter((turno) => turno !== nombreTurno);
     setTurnos(tomarTurno)
-  } 
+  }
 
-
-  const handleSubmit = (e)=> {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const nuevoTurno = {
@@ -38,77 +37,75 @@ const Formulario = () => {
     setTurnos([...turnos, nuevoTurno])
     setTurno(turno);
 
-    /* limpio los campos una vez ingresado los datos */
     setNombreMascota('');
     setNombreDueno('');
     setFecha('');
     setHora('');
-
   }
 
 
-  return(
+  return (
     <>
-    <div className="container container-form">
+      <div className="container container-form">
 
-      <Form onSubmit={handleSubmit}>
-        {/* nombre mascota */}
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Nombre Mascota</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Ingrese el nombre de su mascota"
-            name='nombreMascota'
-            minLength={2}
-            maxLength={50}
-            value={nombreMascota}
-            onChange={(e)=>setNombreMascota(e.target.value)}
-            required />
-        </Form.Group>
-        {/* nombre dueño */}
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Nombre Dueño</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Ingrese el nombre de su mascota"
-            name='nombre'
-            minLength={2}
-            maxLength={50}
-            value={nombreDueno}
-            onChange={(e)=>setNombreDueno(e.target.value)}
-            required />
-        </Form.Group>
-        {/* fecha */}
-        <Form.Group className="mb-3" controlId="formFecha">
-          <Form.Label>Fecha</Form.Label>
-          <Form.Control
-            type="date"
-            name='fecha'
-            value={fecha}
-            onChange={(e)=>setFecha(e.target.value)}
-            required
-          />
-        </Form.Group>
-        {/* hora */}
-       
-        <Form.Group className="mb-3" controlId="formHora">
-          <Form.Label>Hora</Form.Label>
-          <Form.Control
-            type="time"
-            name='hora'
-            value={hora}
-            onChange={(e)=>setHora(e.target.value)}
-            required
-          />
-        </Form.Group>
+        <Form onSubmit={handleSubmit}>
+          {/* nombre mascota */}
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Nombre Mascota</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Ingrese el nombre de su mascota"
+              name='nombreMascota'
+              minLength={2}
+              maxLength={50}
+              value={nombreMascota}
+              onChange={(e) => setNombreMascota(e.target.value)}
+              required />
+          </Form.Group>
+          {/* nombre dueño */}
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Nombre Dueño</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Ingrese el nombre de su mascota"
+              name='nombre'
+              minLength={2}
+              maxLength={50}
+              value={nombreDueno}
+              onChange={(e) => setNombreDueno(e.target.value)}
+              required />
+          </Form.Group>
+          {/* fecha */}
+          <Form.Group className="mb-3" controlId="formFecha">
+            <Form.Label>Fecha</Form.Label>
+            <Form.Control
+              type="date"
+              name='fecha'
+              value={fecha}
+              onChange={(e) => setFecha(e.target.value)}
+              required
+            />
+          </Form.Group>
+          {/* hora */}
 
-        <Button variant="dark" type="submit" className='btn-form py-2 my-2'>
-          Crear Turno
-        </Button>
-      </Form>
-    </div>
+          <Form.Group className="mb-3" controlId="formHora">
+            <Form.Label>Hora</Form.Label>
+            <Form.Control
+              type="time"
+              name='hora'
+              value={hora}
+              onChange={(e) => setHora(e.target.value)}
+              required
+            />
+          </Form.Group>
+
+          <Button variant="dark" type="submit" className='btn-form py-2 my-2'>
+            Crear Turno
+          </Button>
+        </Form>
+      </div>
       <TurnosVista turnos={turnos} borrarTurno={borrarTurno} />
-        </>
+    </>
   )
 }
 
