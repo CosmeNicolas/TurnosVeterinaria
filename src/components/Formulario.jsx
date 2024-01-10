@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 import { useState, useEffect } from 'react'
 import { Form, Button } from "react-bootstrap";
 import TurnosVista from './TurnosVista';
@@ -41,7 +42,19 @@ const Formulario = () => {
     setNombreDueno('');
     setFecha('');
     setHora('');
+
+
+    Swal.fire({
+      title: '¡Turno creado!',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Aceptar'
+    })
+
   }
+
+  
 
 
   return (
