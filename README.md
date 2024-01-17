@@ -14,9 +14,8 @@ En este proyecto , se establecio un formulario usando los hooks de react ,para p
 
 Abre tu terminal y ejecuta el sigueinte comando para clonar el repositorio.
 
-- git clone https://github.com/CosmeNicolas/ReactListForm.git
-
-- cd simpleform
+- git clone https://github.com/CosmeNicolas/TurnosVeterinaria.git
+- cd turnosVeterinaria
 
 ### Instalar Dependencias 💻
 
