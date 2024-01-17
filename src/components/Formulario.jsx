@@ -9,6 +9,7 @@ const Formulario = () => {
   const [nombreDueno, setNombreDueno] = useState('');
   const [fecha, setFecha] = useState('');
   const [hora, setHora] = useState('');
+  const [sintoma, setSintoma] = useState('')
   const [turno, setTurno] = useState('');
   const turnosGuardados = JSON.parse(localStorage.getItem('guardarTurno')) || [];
   const [turnos, setTurnos] = useState(turnosGuardados);
@@ -32,7 +33,8 @@ const Formulario = () => {
       nombreMascota,
       nombreDueno,
       fecha,
-      hora
+      hora,
+      sintoma
     }
 
     setTurnos([...turnos, nuevoTurno])
@@ -42,6 +44,7 @@ const Formulario = () => {
     setNombreDueno('');
     setFecha('');
     setHora('');
+    setSintoma('');
 
 
     Swal.fire({
@@ -82,7 +85,7 @@ const Formulario = () => {
             <Form.Label>Nombre Dueño</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Ingrese el nombre de su mascota"
+              placeholder="Ingrese el nombre del Dueño de la Mascota"
               name='nombre'
               minLength={2}
               maxLength={50}
@@ -112,6 +115,19 @@ const Formulario = () => {
               onChange={(e) => setHora(e.target.value)}
               required
             />
+          </Form.Group>
+          {/* Sintomas */}
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Sintomas</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Ingrese el sintoma de la mascota"
+              name='nombreMascota'
+              minLength={3}
+              maxLength={50}
+              value={sintoma}
+              onChange={(e) => setSintoma(e.target.value)}
+              required />
           </Form.Group>
 
           <Button variant="dark" type="submit" className='btn-form py-2 my-2'>

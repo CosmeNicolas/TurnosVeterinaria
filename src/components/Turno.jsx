@@ -51,6 +51,7 @@ const Turno = ({ turnos, borrarTurno }) => {
               <ListGroup.Item>Nombre Dueño: {itemTurno.nombreDueno}</ListGroup.Item>
               <ListGroup.Item>Fecha: {itemTurno.fecha}</ListGroup.Item>
               <ListGroup.Item>Hora: {itemTurno.hora}</ListGroup.Item>
+                <ListGroup.Item>Sintomas: {itemTurno.sintoma}</ListGroup.Item>
               </ListGroup>
               <Button onClick={() => confirmarBorrarTurno(itemTurno)} variant="dark" className='btn-borrar py-2'>
                 Borrar Turno
