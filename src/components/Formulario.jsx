@@ -25,8 +25,43 @@ const Formulario = () => {
     setTurnos(tomarTurno)
   }
 
+
+  //validar turnos cada media hora
+  const validarTurno = ()=>{
+    const horaActual = new Date();
+    const horaDelTurno = new Date(`${fecha}T${hora}`);
+    const horaMinima = new Date(`${fecha}T00:00:00`);
+    const horaMaxima = new Date(`${fecha}T23:59:59`);
+    const mediaHoraEnMilisegundos = 30 * 60 * 1000;
+    
+    if (
+      isNaN(horaDelTurno.getTime()) ||
+      horaDelTurno < horaMinima ||
+      horaDelTurno > horaMaxima ||
+      (horaDelTurno.getMinutes() % 30 !== 0) ||
+      turnos.some(
+        (turno) =>
+        new Date(`${turno.fecha}T${turno.hora}`).getTime() ===
+          horaDelTurno.getTime()
+        )
+        ) {
+    Swal.fire({
+      title: '¡Error!',
+      icon: 'error',
+      text: 'Hora de turno no válida o ya está ocupada. Los turnos deben ser cada 30 minutos.',
+    });
+    return false;
+  }
+    return true;
+  
+}
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!validarTurno()) {
+      return;
+    }
 
     const nuevoTurno = {
       nombreMascota,
@@ -36,12 +71,13 @@ const Formulario = () => {
     }
 
     setTurnos([...turnos, nuevoTurno])
-    setTurno(turno);
+    
 
     setNombreMascota('');
     setNombreDueno('');
     setFecha('');
     setHora('');
+    
 
 
     Swal.fire({
@@ -51,7 +87,7 @@ const Formulario = () => {
       confirmButtonColor: '#3085d6',
       confirmButtonText: 'Aceptar',
       customClass: {
-        popup: 'container-alert',
+      popup: 'container-alert',
       }
     })
 
@@ -83,7 +119,7 @@ const Formulario = () => {
             <Form.Control
               type="text"
               placeholder="Ingrese el nombre de su mascota"
-              name='nombre'
+              name='nombreDueno'
               minLength={2}
               maxLength={50}
               value={nombreDueno}
