@@ -143,6 +143,7 @@ const Formulario = () => {
 
           <Form.Group className="mb-3" controlId="formHora">
             <Form.Label>Hora</Form.Label>
+            
             <Form.Control
               type="time"
               name='hora'
@@ -150,6 +151,9 @@ const Formulario = () => {
               onChange={(e) => setHora(e.target.value)}
               required
             />
+            <Form.Text id="hora"  className='text-grey'>
+              Dos turnos de 30 minutos por hora 
+            </Form.Text>
           </Form.Group>
           {/* Sintomas */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
