@@ -152,7 +152,7 @@ const Formulario = () => {
               required
             />
             <Form.Text id="hora"  className='text-grey'>
-              Dos turnos de 30 minutos por hora 
+              Ingrese una hora valida, como por ej: 18:00, 18:30
             </Form.Text>
           </Form.Group>
           {/* Sintomas */}
