@@ -10,7 +10,6 @@ const Formulario = () => {
   const [fecha, setFecha] = useState('');
   const [hora, setHora] = useState('');
   const [sintoma, setSintoma] = useState('')
-  const [turno, setTurno] = useState('');
   const turnosGuardados = JSON.parse(localStorage.getItem('guardarTurno')) || [];
   const [turnos, setTurnos] = useState(turnosGuardados);
 
@@ -79,6 +78,7 @@ const Formulario = () => {
     setNombreDueno('');
     setFecha('');
     setHora('');
+    setSintoma('')
     
 
 
