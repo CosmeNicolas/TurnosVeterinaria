@@ -152,7 +152,7 @@ const Formulario = () => {
               required
             />
             <Form.Text id="hora"  className='text-grey'>
-              Ingrese una hora valida, como por ej: 18:00, 18:30
+              Ingrese una hora valida cada 30 minutos, como por ej:18:00, 18:30, etc.
             </Form.Text>
           </Form.Group>
           {/* Sintomas */}
